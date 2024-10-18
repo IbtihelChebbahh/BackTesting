@@ -83,14 +83,12 @@ public class DepartementServiceImplTest {
 
     @Test
     public void testAddDepartement_AlreadyExists() {
-        // Given
         DepartementDto dto = new DepartementDto();
         dto.setName("HR");
 
         when(userService.getCurrentUser()).thenReturn(user);
         when(departementRepository.findAll()).thenReturn(Arrays.asList(departement));
 
-        // When/Then
         assertThrows(DepartementException.class, () -> departementService.addDepartement(dto));
     }
 
@@ -105,10 +103,8 @@ public class DepartementServiceImplTest {
         when(departementRepository.save(any(Departement.class))).thenReturn(departement);
         when(modelMapper.map(any(Departement.class), eq(DepartementDto.class))).thenReturn(dto);
 
-        // When
         DepartementDto result = departementService.updateDepartement(1L, dto);
 
-        // Then
         assertNotNull(result);
         assertEquals("Finance", result.getName());
         verify(departementRepository, times(1)).save(any(Departement.class));

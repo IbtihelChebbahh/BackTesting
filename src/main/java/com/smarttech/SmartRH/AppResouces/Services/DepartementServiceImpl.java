@@ -15,6 +15,7 @@ import com.smarttech.SmartRH.AppResouces.Services.interfaces.DepartementService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -208,5 +209,15 @@ public class DepartementServiceImpl implements DepartementService {
             }
             return list;
         }
+    }
+
+    @Scheduled(fixedRate = 5000) // 5000 milliseconds = 5 seconds
+    public void countSmallDepartments() {
+        List<Departement> allDepartments = departementRepository.findAll();
+        long count = allDepartments.stream()
+                .filter(dept -> dept.getUsers(). size() < 10)
+                .count();
+
+        System.out.println("There are " + count + " departments with fewer than 10 employees.");
     }
 }
