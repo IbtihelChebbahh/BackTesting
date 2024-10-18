@@ -15,7 +15,7 @@ import com.smarttech.SmartRH.AppResouces.Services.interfaces.DepartementService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.scheduling.annotation.Scheduled;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
