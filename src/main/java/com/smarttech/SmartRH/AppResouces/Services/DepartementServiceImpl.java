@@ -211,13 +211,5 @@ public class DepartementServiceImpl implements DepartementService {
         }
     }
 
-    @Scheduled(fixedRate = 5000) // 5000 milliseconds = 5 seconds
-    public void countSmallDepartments() {
-        List<Departement> allDepartments = departementRepository.findAll();
-        long count = allDepartments.stream()
-                .filter(dept -> dept.getUsers(). size() < 10)
-                .count();
 
-        System.out.println("There are " + count + " departments with fewer than 10 employees.");
-    }
 }

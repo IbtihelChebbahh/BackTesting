@@ -1,5 +1,5 @@
 package com.smarttech.SmartRH;
-import org.springframework.scheduling.annotation.EnableScheduling;
+
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 
-@EnableScheduling
+
 public class SmartRhApplication {
 
 	public static void main(String[] args) {
