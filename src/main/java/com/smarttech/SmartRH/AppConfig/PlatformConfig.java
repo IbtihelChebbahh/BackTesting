@@ -19,6 +19,25 @@ public class PlatformConfig {
     private String smsPassword = "";
 
 
+    private String model;
+    private double temperature;
 
+    // Getter and Setter for model
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    // Getter and Setter for temperature
+    public double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(double temperature) {
+        this.temperature = temperature;
+    }
 
 }
